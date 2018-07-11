@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 style="padding: 20px 0;">Bienvenue sur le blog</h1>
+    <h3 style="padding: 20px 0;">Voici la liste des articles</h3>
+    <a href="{{ path("posts.create") }}" class="button primary">Créer un nouvel article</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Titre</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.title }}</td>
+                <td>
+                    <a href="{{ path('posts.show', {'id': product.id}) }}" class="button primary">Consulter</a>
+                    <a href="{{ path('posts.delete', {'id': product.id}) }}" class="button danger">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

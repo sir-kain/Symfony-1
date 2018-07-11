@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% for msg in app.session.flashbag.get("success") %}
+        <div class="alert success" style="color: #fff;background: #9CCC65;padding: 20px;">
+            {{ msg }}
+        </div>
+    {% endfor %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <a style="margin-top: 20px;" href="{{ path('posts.index') }}" class="button primary">Retour à la liste des articles</a>
+{% endblock %}
